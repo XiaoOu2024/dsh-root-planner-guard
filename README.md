@@ -1,5 +1,19 @@
 # dsh-root-planner-guard
 
+> **Archived — this guard now ships inside the preset.**
+>
+> `dsh-root-planner-preset` (>= 1.3.0) carries this exact module as one of its own preset
+> rows (`dsh-root-planner-preset/guard`), so one install gives you the persona, the child
+> tool mask and the fence together. This package is **deprecated on npm** and this
+> repository is read-only.
+>
+> That merge was the right call, not just tidiness: the `_agents/` convention is defined by
+> the preset's persona. A guard installed on its own fences agents that were never told
+> where they may write — it does not protect them, it only stops them.
+>
+> **Install the preset instead:**
+> <https://github.com/XiaoOu2024/dsh-root-planner-preset>
+
 A profile-level DSH plugin that keeps every **delegated subagent** inside the workspace
 its parent assigned to it. It is the enforcement half of
 [dsh-root-planner-preset](https://github.com/XiaoOu2024/dsh-root-planner-preset), but it
