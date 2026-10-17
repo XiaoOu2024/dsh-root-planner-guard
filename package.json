@@ -1,12 +1,30 @@
 {
   "name": "dsh-root-planner-guard",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
-  "description": "Keep delegated subagents inside the workspace their parent assigned.",
+  "description": "Fences every delegated subagent inside its own workspace: refuses a write outside _agents/ and forces a shell working directory inside it.",
   "exports": {
     ".": "./index.js"
   },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XiaoOu2024/dsh-root-planner-guard.git"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "subagent",
+    "guard",
+    "workspace",
+    "sandbox"
+  ],
+  "license": "MIT",
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
@@ -14,6 +32,6 @@
   },
   "meta": {
     "title": "Root Planner Guard",
-    "description": "Refuses subagent writes outside its own _agents/ workspace."
+    "description": "Refuses a subagent's writes outside its own _agents/ workspace."
   }
 }
