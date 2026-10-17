@@ -1,0 +1,19 @@
+{
+  "name": "dsh-root-planner-guard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Keep delegated subagents inside the workspace their parent assigned.",
+  "exports": {
+    ".": "./index.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "meta": {
+    "title": "Root Planner Guard",
+    "description": "Refuses subagent writes outside its own _agents/ workspace."
+  }
+}

@@ -1,0 +1,16 @@
+# Fences every delegated subagent inside its own workspace under `_agents/`.
+#
+# One guard is registered on this plugin's own context, so it sees every tool call and
+# decides from the calling agent's session header. Delegated sessions are fenced; the
+# root is not, because it owns the workspace and has to be able to write anywhere in
+# it to integrate a child's artifacts.
+- insert:
+    - id: root-planner-guard
+      name: dsh-root-planner-guard
+      config:
+        enabled: true
+        directoryName: _agents
+        guardShell: true
+        # `true` appends one line per fenced call to guard-debug.log in the host's
+        # working directory. Useful while diagnosing, litter afterwards.
+        debug: false
