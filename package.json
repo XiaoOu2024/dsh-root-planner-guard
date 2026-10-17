@@ -1,6 +1,6 @@
 {
   "name": "dsh-root-planner-guard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Fences every delegated subagent inside its own workspace: refuses a write outside _agents/ and forces a shell working directory inside it.",
   "exports": {
