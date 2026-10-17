@@ -1,0 +1,28 @@
+name: verify
+
+# The guard's whole value is that it refuses calls, so its assertions run on every push.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # The plugin is plain ESM with no build step and no dependencies.
+          node-version: '20'
+
+      - name: Syntax check
+        run: node --check index.js
+
+      - name: Boundary assertions
+        run: node test-guard.mjs
+
+      - name: Manifest is a bundle
+        run: node -e "const j=require('./package.json'); if(!j.dsh?.bundle?.patch) { console.error('package.json is missing dsh.bundle.patch'); process.exit(1) } if(j.private===true) { console.error('package.json still private'); process.exit(1) } console.log('bundle manifest ok')"
